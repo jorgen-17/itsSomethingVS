@@ -8,14 +8,14 @@ namespace itsSomething
 	{
 		class window
 		{
-			private:
-				std::string name;
-				int width, height;
+		private:
+			std::string name;
+			int width, height;
 
-			public:
-				window(std::string name, int width, int height);
-				~window();
-				void update() const;
+		public:
+			window(std::string name, int width, int height);
+			~window();
+			void update() const;
 		};
 	}
 }
