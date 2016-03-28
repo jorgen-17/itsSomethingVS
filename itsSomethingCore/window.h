@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glfw3.h>
 
 namespace itsSomething
 {
@@ -9,8 +10,12 @@ namespace itsSomething
 		class window
 		{
 		private:
-			std::string name;
+			//members
+			std::string title;
 			int width, height;
+			GLFWwindow *pWindow;
+			//functions
+			void init();
 
 		public:
 			window(std::string name, int width, int height);
