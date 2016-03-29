@@ -15,27 +15,47 @@ namespace itsSomething
 			this->width = width;
 			this->height = height;
 
-			this->init();
+			if(!this->init())
+			{
+				glfwTerminate();
+			}
 		}
 
 		window::~window()
 		{
+			glfwTerminate();
 		}
 
 		void window::update() const
 		{
+			glfwPollEvents();
+			glfwSwapBuffers(this->pWindow);
 		}
 
-		void window::init()
+		bool window::init()
 		{
+			if (!glfwInit())
+			{
+				std::cout << "could not initialize glfw" << std::endl;
+				return false;
+			}
+
 			this->pWindow = glfwCreateWindow(this->width, this->height, this->title.c_str(), NULL, NULL);
 			
 			if(!this->pWindow)
 			{
 				std::cout << "Failed to create window" << std::endl;
-				return;
+				return false;
 			}
+			glfwMakeContextCurrent(this->pWindow);
+			return true;
 		}
+
+		bool window::closed() const
+		{
+			return glfwWindowShouldClose(this->pWindow);
+		}
+
 	}
                   
 }                                                                                                                                                                                                                                                                                                                         
