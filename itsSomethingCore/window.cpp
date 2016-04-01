@@ -1,6 +1,3 @@
-                               
-#pragma once
-
 #include <string>
 #include "window.h"
 #include <iostream>
@@ -56,6 +53,12 @@ namespace itsSomething
 			}
 			glfwMakeContextCurrent(this->pWindow);
 			glfwSetWindowSizeCallback(this->pWindow, resize);
+
+			if(glewInit() != GLEW_OK)
+			{
+				std::cout << "COuld not initialize glew" << std::endl;
+			}
+
 			return true;
 		}
 

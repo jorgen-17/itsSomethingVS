@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glew.h>
 #include <glfw3.h>
 
 namespace itsSomething
