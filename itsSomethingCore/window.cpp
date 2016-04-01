@@ -9,6 +9,8 @@ namespace itsSomething
 {
 	namespace graphics
 	{
+		void resize(GLFWwindow* win, int width, int height);
+
 		window::window(std::string title, int width, int height)
 		{
 			this->title = title;
@@ -26,10 +28,15 @@ namespace itsSomething
 			glfwTerminate();
 		}
 
-		void window::update() const
+		void window::update()
 		{
 			glfwPollEvents();
 			glfwSwapBuffers(this->pWindow);
+		}
+
+		void window::clear() const
+		{
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
 		bool window::init()
@@ -48,6 +55,7 @@ namespace itsSomething
 				return false;
 			}
 			glfwMakeContextCurrent(this->pWindow);
+			glfwSetWindowSizeCallback(this->pWindow, resize);
 			return true;
 		}
 
@@ -56,6 +64,10 @@ namespace itsSomething
 			return glfwWindowShouldClose(this->pWindow);
 		}
 
+		void resize(GLFWwindow* win, int width, int height)
+		{
+			glViewport(0, 0, width, height);
+		}
 	}
                   
 }                                                                                                                                                                                                                                                                                                                         

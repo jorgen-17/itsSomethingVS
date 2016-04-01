@@ -16,12 +16,14 @@ namespace itsSomething
 			GLFWwindow *pWindow;
 			//functions
 			bool init();
-
 		public:
 			window(std::string name, int width, int height);
 			~window();
-			void update() const;
+			void clear() const;
+			void update();
 			bool closed() const;
+			inline int getWidth() { return this->width; };
+			inline int getHeight() { return this->height; };
 		};
 	}
 }
