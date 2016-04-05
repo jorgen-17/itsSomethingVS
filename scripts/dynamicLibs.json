@@ -1,0 +1,3 @@
+{
+    "glew32.dll" : "../dependencies/glew/bin/Release/Win32/glew32.dll"
+}

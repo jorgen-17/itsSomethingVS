@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76FD613D-B3C0-45D4-9367-44A74701E54D}</ProjectGuid>
     <RootNamespace>itsSomethingCore</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,10 +42,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)dependencies\glfw\include\GLFW;$(SolutionDir)dependencies\glew\include\GL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\glew\lib\Release\Win32;$(SolutionDir)dependencies\glfw\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)dependencies\glfw\include\GLFW;$(SolutionDir)dependencies\glew\include\GL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\glew\lib\Release\Win32;$(SolutionDir)dependencies\glfw\lib-vc2015;$(SolutionDir)dependencies\glfw\lib-vc2013;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
