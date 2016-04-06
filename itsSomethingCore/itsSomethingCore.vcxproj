@@ -43,13 +43,13 @@
     <IncludePath>$(SolutionDir)dependencies\glfw\include\GLFW;$(SolutionDir)dependencies\glew\include\GL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\glew\lib\Release\Win32;$(SolutionDir)dependencies\glfw\lib-vc2015;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)dependencies\glfw\include\GLFW;$(SolutionDir)dependencies\glew\include\GL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\glew\lib\Release\Win32;$(SolutionDir)dependencies\glfw\lib-vc2015;$(SolutionDir)dependencies\glfw\lib-vc2013;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\intermediates\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

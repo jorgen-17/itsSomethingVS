@@ -15,8 +15,15 @@ namespace itsSomething
 			this->height = height;
 
 			if(!this->init())
-			{
 				glfwTerminate();
+			
+			for (int i = 0; i < MAX_KEYS; i++)
+			{
+				this->keys[i] = false;
+			}
+			for (int i = 0; i < MAX_BUTTONS; i++)
+			{
+				this->mouseButtons[i] = false;
 			}
 		}
 
@@ -52,12 +59,15 @@ namespace itsSomething
 				return false;
 			}
 			glfwMakeContextCurrent(this->pWindow);
+			glfwSetWindowUserPointer(this->pWindow, this);
 			glfwSetWindowSizeCallback(this->pWindow, resize);
 
 			if(glewInit() != GLEW_OK)
 			{
 				std::cout << "COuld not initialize glew" << std::endl;
 			}
+
+
 
 			return true;
 		}
@@ -69,8 +79,15 @@ namespace itsSomething
 
 		void resize(GLFWwindow* win, int width, int height)
 		{
+			window* userWindow = (window*)glfwGetWindowUserPointer(win);
 			glViewport(0, 0, width, height);
 		}
-	}
-                  
+
+		void keyCallback(GLFWwindow* win, int key, int scancode, int action, int mods)
+		{
+			window* userWindow = (window*)glfwGetWindowUserPointer(win);
+			userWindow->keys[key] = action != GLFW_RELEASE;
+		}
+
+	}             
 }                                                                                                                                                                                                                                                                                                                         
