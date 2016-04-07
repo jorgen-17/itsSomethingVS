@@ -17,9 +17,9 @@ namespace itsSomething
 			//members
 			std::string title;
 			int width, height;
-			static bool keys[MAX_BUTTONS];
-			static bool mouseButtons[MAX_BUTTONS];
-			static double mouseX, mouseY;
+			bool keys[MAX_KEYS];
+			bool mouseButtons[MAX_BUTTONS];
+			double mouseX, mouseY;
 			GLFWwindow *pWindow;
 			//functions
 			bool init();
@@ -32,6 +32,7 @@ namespace itsSomething
 			bool closed() const;
 			inline int getWidth() { return this->width; };
 			inline int getHeight() { return this->height; };
+			bool isKeyPressed(unsigned int keyCode);
 		};
 	}
 }

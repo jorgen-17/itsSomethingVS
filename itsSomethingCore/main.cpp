@@ -13,6 +13,11 @@ int main()
 	{
 		win.clear();
 
+		if(win.isKeyPressed(GLFW_KEY_A))
+		{
+			std::cout << "pressed A" << std::endl;
+		}
+
 		glBegin(GL_QUADS);
 		glVertex2f(-0.25f, -0.25f);
 		glVertex2f(-0.25f, 0.25f);

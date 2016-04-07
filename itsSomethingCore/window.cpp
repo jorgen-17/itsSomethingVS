@@ -1,12 +1,14 @@
 #include <string>
 #include "window.h"
 #include <iostream>
+#include <cassert>
 
 namespace itsSomething
 {
 	namespace graphics
 	{
 		void resize(GLFWwindow* win, int width, int height);
+		void keyCallback(GLFWwindow* win, int key, int scancode, int action, int mods);
 
 		window::window(std::string title, int width, int height)
 		{
@@ -61,10 +63,11 @@ namespace itsSomething
 			glfwMakeContextCurrent(this->pWindow);
 			glfwSetWindowUserPointer(this->pWindow, this);
 			glfwSetWindowSizeCallback(this->pWindow, resize);
+			glfwSetKeyCallback(this->pWindow, keyCallback);
 
 			if(glewInit() != GLEW_OK)
 			{
-				std::cout << "COuld not initialize glew" << std::endl;
+				std::cout << "Could not initialize glew" << std::endl;
 			}
 
 
@@ -74,7 +77,14 @@ namespace itsSomething
 
 		bool window::closed() const
 		{
-			return glfwWindowShouldClose(this->pWindow);
+			return glfwWindowShouldClose(this->pWindow) == 1;
+		}
+
+		bool window::isKeyPressed(unsigned int keyCode)
+		{
+			assert(keyCode < MAX_KEYS && keyCode > 0);
+
+			return this->keys[keyCode];
 		}
 
 		void resize(GLFWwindow* win, int width, int height)
