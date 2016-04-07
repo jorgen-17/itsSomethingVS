@@ -34,8 +34,8 @@ namespace itsSomething
 			bool closed() const;
 			inline int getWidth() { return this->width; };
 			inline int getHeight() { return this->height; };
-			bool isKeyPressed(unsigned int keyCode);
-			bool isMouseButtonPressed(unsigned int mouseButtonCode);
+			bool isKeyPressed(unsigned int keyCode) const;
+			bool isMouseButtonPressed(unsigned int mouseButtonCode) const;
 			inline double getMouseX() { return this->mouseX; };
 			inline double getMouseY() { return this->mouseY; };
 		};

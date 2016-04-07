@@ -84,14 +84,14 @@ namespace itsSomething
 			return glfwWindowShouldClose(this->pWindow) == 1;
 		}
 
-		bool window::isKeyPressed(unsigned int keyCode)
+		bool window::isKeyPressed(unsigned int keyCode) const
 		{
 			assert(keyCode < MAX_KEYS && keyCode >= 0);
 
 			return this->keys[keyCode];
 		}
 
-		bool window::isMouseButtonPressed(unsigned int mouseButtonCode)
+		bool window::isMouseButtonPressed(unsigned int mouseButtonCode) const
 		{
 			assert(mouseButtonCode < MAX_BUTTONS && mouseButtonCode >= 0);
 
