@@ -23,6 +23,8 @@ int main()
 			std::cout << "Clicked" << std::endl;
 		}
 
+		std::cout << win.getMouseX() << ", " << win.getMouseY() << std::endl;
+
 		glBegin(GL_QUADS);
 		glVertex2f(-0.25f, -0.25f);
 		glVertex2f(-0.25f, 0.25f);

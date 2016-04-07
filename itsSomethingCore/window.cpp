@@ -10,6 +10,7 @@ namespace itsSomething
 		void resize(GLFWwindow* win, int width, int height);
 		void keyCallback(GLFWwindow* win, int key, int scancode, int action, int mods);
 		void mouseButtonCallback(GLFWwindow* win, int button, int action, int mods);
+		void mousePositionCallback(GLFWwindow* win, double xpos, double ypos);
 
 		window::window(std::string title, int width, int height)
 		{
@@ -66,6 +67,7 @@ namespace itsSomething
 			glfwSetWindowSizeCallback(this->pWindow, resize);
 			glfwSetKeyCallback(this->pWindow, keyCallback);
 			glfwSetMouseButtonCallback(this->pWindow, mouseButtonCallback);
+			glfwSetCursorPosCallback(this->pWindow, mousePositionCallback);
 
 			if(glewInit() != GLEW_OK)
 			{
@@ -112,6 +114,13 @@ namespace itsSomething
 		{
 			window* userWindow = (window*)glfwGetWindowUserPointer(win);
 			userWindow->mouseButtons[button] = action != GLFW_RELEASE;
+		}
+
+		void mousePositionCallback(GLFWwindow* win, double xpos, double ypos)
+		{
+			window* userWindow = (window*)glfwGetWindowUserPointer(win);
+			userWindow->mouseX = xpos;
+			userWindow->mouseY = ypos;
 		}
 	}             
 }                                                                                                                                                                                                                                                                                                                         
