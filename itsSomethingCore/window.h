@@ -24,6 +24,7 @@ namespace itsSomething
 			//functions
 			bool init();
 			friend static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+			friend static void mouseButtonCallback(GLFWwindow* win, int button, int action, int mods);
 		public:
 			window(std::string name, int width, int height);
 			~window();
@@ -33,6 +34,7 @@ namespace itsSomething
 			inline int getWidth() { return this->width; };
 			inline int getHeight() { return this->height; };
 			bool isKeyPressed(unsigned int keyCode);
+			bool isMouseButtonPressed(unsigned int mouseButtonCode);
 		};
 	}
 }

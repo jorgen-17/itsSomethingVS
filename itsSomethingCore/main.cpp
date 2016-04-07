@@ -18,6 +18,11 @@ int main()
 			std::cout << "pressed A" << std::endl;
 		}
 
+		if (win.isMouseButtonPressed(GLFW_MOUSE_BUTTON_1))
+		{
+			std::cout << "Clicked" << std::endl;
+		}
+
 		glBegin(GL_QUADS);
 		glVertex2f(-0.25f, -0.25f);
 		glVertex2f(-0.25f, 0.25f);

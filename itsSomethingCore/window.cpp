@@ -9,6 +9,7 @@ namespace itsSomething
 	{
 		void resize(GLFWwindow* win, int width, int height);
 		void keyCallback(GLFWwindow* win, int key, int scancode, int action, int mods);
+		void mouseButtonCallback(GLFWwindow* win, int button, int action, int mods);
 
 		window::window(std::string title, int width, int height)
 		{
@@ -64,6 +65,7 @@ namespace itsSomething
 			glfwSetWindowUserPointer(this->pWindow, this);
 			glfwSetWindowSizeCallback(this->pWindow, resize);
 			glfwSetKeyCallback(this->pWindow, keyCallback);
+			glfwSetMouseButtonCallback(this->pWindow, mouseButtonCallback);
 
 			if(glewInit() != GLEW_OK)
 			{
@@ -82,9 +84,16 @@ namespace itsSomething
 
 		bool window::isKeyPressed(unsigned int keyCode)
 		{
-			assert(keyCode < MAX_KEYS && keyCode > 0);
+			assert(keyCode < MAX_KEYS && keyCode >= 0);
 
 			return this->keys[keyCode];
+		}
+
+		bool window::isMouseButtonPressed(unsigned int mouseButtonCode)
+		{
+			assert(mouseButtonCode < MAX_BUTTONS && mouseButtonCode >= 0);
+
+			return this->mouseButtons[mouseButtonCode];
 		}
 
 		void resize(GLFWwindow* win, int width, int height)
@@ -99,5 +108,10 @@ namespace itsSomething
 			userWindow->keys[key] = action != GLFW_RELEASE;
 		}
 
+		void mouseButtonCallback(GLFWwindow* win, int button, int action, int mods)
+		{
+			window* userWindow = (window*)glfwGetWindowUserPointer(win);
+			userWindow->mouseButtons[button] = action != GLFW_RELEASE;
+		}
 	}             
 }                                                                                                                                                                                                                                                                                                                         
