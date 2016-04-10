@@ -30,12 +30,24 @@
     <ClCompile Include="vec2.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
+    <ClCompile Include="vec3.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="vec4.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
       <Filter>Source Files\graphics</Filter>
     </ClInclude>
     <ClInclude Include="vec2.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="vec4.h">
       <Filter>Source Files\math</Filter>
     </ClInclude>
   </ItemGroup>
