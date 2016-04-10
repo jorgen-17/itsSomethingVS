@@ -49,6 +49,43 @@ namespace itsSomething
 			return *this;
 		};
 
+		vec4 operator+(vec4 lhs, const vec4& rhs)
+		{
+			return lhs.add(rhs);
+		};
+
+		vec4 operator-(vec4 lhs, const vec4& rhs)
+		{
+			return lhs.subs(rhs);
+		};
+
+		vec4 operator*(vec4 lhs, const vec4& rhs)
+		{
+			return lhs.mult(rhs);
+		};
+
+		vec4 operator/(vec4 lhs, const vec4& rhs)
+		{
+			return lhs.div(rhs);
+		};
+
+		void vec4::operator+=(const vec4& other)
+		{
+			this->add(other);
+		};
+		void vec4::operator-=(const vec4& other)
+		{
+			this->subs(other);
+		};
+		void vec4::operator*=(const vec4& other)
+		{
+			this->mult(other);
+		};
+		void vec4::operator/=(const vec4& other)
+		{
+			this->div(other);
+		};
+
 		bool vec4::operator==(const vec4& other)
 		{
 			return this->x == other.x  && this->y == other.y && this->z == other.z && this->w == other.w;

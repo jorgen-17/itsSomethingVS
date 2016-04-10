@@ -20,6 +20,18 @@ int main()
 	std::cout << (vector1 == vector3) << std::endl;
 
 
+	std::cout << vector1 + vector2 << std::endl;
+	std::cout << vector1  << std::endl;
+
+	auto vector4 = vector2 + vector3;
+
+	std::cout << vector4 << std::endl;
+
+	vector4 += vector1;
+
+	std::cout << vector4 << std::endl;
+	std::cout << vector1 << std::endl;
+
 	while(!win.closed())
 	{
 		win.clear();

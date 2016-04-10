@@ -18,6 +18,16 @@ namespace itsSomething
 			vec2& mult(const vec2& other);
 			vec2& div(const vec2& other);
 
+			friend vec2 operator+(vec2 lhs, const vec2& rhs);
+			friend vec2 operator-(vec2 lhs, const vec2& rhs);
+			friend vec2 operator*(vec2 lhs, const vec2& rhs);
+			friend vec2 operator/(vec2 lhs, const vec2& rhs);
+
+			void operator+=(const vec2& other);
+			void operator-=(const vec2& other);
+			void operator*=(const vec2& other);
+			void operator/=(const vec2& other);
+
 			bool operator==(const vec2& other);
 			bool operator!=(const vec2& other);
 			
