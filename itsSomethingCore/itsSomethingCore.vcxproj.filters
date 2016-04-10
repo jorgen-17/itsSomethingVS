@@ -16,6 +16,9 @@
     <Filter Include="Source Files\graphics">
       <UniqueIdentifier>{44631f6a-da70-4079-b456-65b39569158f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{aa66c846-8aa5-48aa-a15c-7ae522bf8829}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,10 +27,16 @@
     <ClCompile Include="window.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="vec2.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
       <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Source Files\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

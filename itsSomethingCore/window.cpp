@@ -100,7 +100,6 @@ namespace itsSomething
 
 		void resize(GLFWwindow* win, int width, int height)
 		{
-			window* userWindow = (window*)glfwGetWindowUserPointer(win);
 			glViewport(0, 0, width, height);
 		}
 
