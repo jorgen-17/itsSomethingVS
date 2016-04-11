@@ -86,6 +86,7 @@
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="angles.h" />
     <ClInclude Include="mat4.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="vec2.h" />

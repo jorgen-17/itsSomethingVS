@@ -59,5 +59,8 @@
     <ClInclude Include="math.h">
       <Filter>Source Files\math</Filter>
     </ClInclude>
+    <ClInclude Include="angles.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
