@@ -39,6 +39,12 @@
     <ClCompile Include="mat4.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
+    <ClCompile Include="degrees.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="radians.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
@@ -59,7 +65,10 @@
     <ClInclude Include="math.h">
       <Filter>Source Files\math</Filter>
     </ClInclude>
-    <ClInclude Include="angles.h">
+    <ClInclude Include="radians.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="degrees.h">
       <Filter>Source Files\math</Filter>
     </ClInclude>
   </ItemGroup>
