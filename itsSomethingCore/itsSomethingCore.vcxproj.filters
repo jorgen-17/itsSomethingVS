@@ -36,6 +36,9 @@
     <ClCompile Include="vec4.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
+    <ClCompile Include="mat4.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
@@ -48,6 +51,12 @@
       <Filter>Source Files\math</Filter>
     </ClInclude>
     <ClInclude Include="vec4.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="mat4.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math.h">
       <Filter>Source Files\math</Filter>
     </ClInclude>
   </ItemGroup>
