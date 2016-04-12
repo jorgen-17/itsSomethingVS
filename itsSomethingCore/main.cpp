@@ -35,25 +35,33 @@ int main()
 
 
 	//testingout mat4
-	math::mat4 mat1;
-	mat1.elements = std::vector<float>{ 1,5,9,13,2,6,10,14,3,7,11,15,4,8,12,16 };
-	math::mat4 mat2;
-	mat2.elements = std::vector<float>{ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 };
+	math::mat4 matrix1;
+	matrix1.elements = std::vector<float>{ 1,5,9,13,2,6,10,14,3,7,11,15,4,8,12,16 };
+	math::mat4 matrix2;
+	matrix2.elements = std::vector<float>{ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 };
 		//TODO: find out why this doesnt work: math::mat4::identity();
 
-	std::cout << mat1 << std::endl;
-	std::cout << mat2 << std::endl;
-	mat1 *= mat2;
-	std::cout << mat1 << std::endl;
+	std::cout << matrix1 << std::endl;
+	std::cout << matrix2 << std::endl;
+	matrix1 *= matrix2;
+	std::cout << matrix1 << std::endl;
+	auto identity = math::mat4::identity();
+	auto maybeOne = (matrix1 == (matrix1 * identity));
+	auto yesOrNoMessage = maybeOne ? "\tYayyyy!!!!" : "\tnoooo, why did you break it?!?!?!?";
+	std::cout << "please be one: " << maybeOne << yesOrNoMessage << std::endl;
 
-	math::mat4 mat3(1.0f);
-	math::mat4 mat4(1.0f);
+	math::mat4 matrix3(1.0f);
+	math::mat4 matrix4 = math::mat4::identity();
+	
+	std::cout << (matrix3 == matrix4) << std::endl;
+	std::cout << (matrix3 == matrix1) << std::endl;
+	std::cout << (matrix3 != matrix4) << std::endl;
 
-	std::cout << (mat3 == mat4) << std::endl;
-	std::cout << (mat3 == mat1) << std::endl;
-	std::cout << (mat3 != mat4) << std::endl;
-
-
+	math::mat4 matrix5 = math::mat4::orthographic(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	math::mat4 matrix6 = math::mat4::perspective(math::degrees(45.0f), 0.45f, 1.0f, 2.0f);
+	math::mat4 matrix7 = math::mat4::translation(math::vec3(1.0f, 1.0f, 1.0f));
+	math::mat4 matrix8 = math::mat4::rotation(math::degrees(45.0f), math::vec3(1.0f, 1.0f, 1.0f));
+	math::mat4 matrix9 = math::mat4::scale(math::vec3(1.0f, 1.0f, 1.0f));
 
 	while(!win.closed())
 	{

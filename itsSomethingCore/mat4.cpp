@@ -2,7 +2,7 @@
 #include <cassert>
 #include <sstream>
 #include <iomanip>
-#include <math.h>
+#include <cmath>
 
 #define _USE_MATH_DEFINES
 
@@ -24,11 +24,13 @@ namespace itsSomething
 			this->elements[3 + 3 * 4] = diagonal;
 		};
 
-		static mat4 identity()
+		mat4 mat4::identity()
 		{
-			return mat4(1.0f);
+			mat4 result(1.0f);
+
+			return result;
 		};
-		static mat4 orthographic(float left, float right, float top, float bottom, float near, float far)
+		mat4 mat4::orthographic(float left, float right, float top, float bottom, float near, float far)
 		{
 			mat4 result;
 			result.elements[0 + 0 * 4] = 2.0f / (right - left);
@@ -41,30 +43,67 @@ namespace itsSomething
 
 			return result;
 		};
-		static mat4 perspective(float fov, float aspectRatio, float near, float far)
+		mat4 mat4::perspective(degrees fov, float aspectRatio, float near, float far)
 		{
-			assert(far > near);
-
+			auto halfFov = toRadians(degrees(fov.val/2)).val;
+			auto oneOverTanHalfFov = 1 / tan(halfFov);
+			auto oneOverDepth = 1 / (near - far);
 			
 			mat4 result;
-			result.elements[0 + 0 * 4] = 2.0f;
-			result.elements[1 + 1 * 4] = 2.0f ;
-			result.elements[2 + 2 * 4] = 2.0f / (near - far);
-			result.elements[3 + 2 * 4] = 1.0f;
+			result.elements[0 + 0 * 4] = oneOverTanHalfFov * (1 / aspectRatio);
+			result.elements[1 + 1 * 4] = oneOverTanHalfFov;
+			result.elements[2 + 2 * 4] = (far + near) * oneOverDepth;
+			result.elements[3 + 2 * 4] = -1.0f;
+			result.elements[2 + 3 * 4] = (2 * near * far) * oneOverDepth;
 
 			return result;
 		};
-		static mat4 translation(static vec3& translation)
+		mat4 mat4::translation(static vec3& translation)
 		{
+			mat4 result(1.0f);
 
+			result.elements[0 + 3 * 4] = translation.x;
+			result.elements[1 + 3 * 4] = translation.y;
+			result.elements[2 + 3 * 4] = translation.z;
+
+			return result;
 		};
-		static mat4 rotation(float angle, static vec3& axis)
+		mat4 mat4::rotation(degrees angle, static vec3& axis)
 		{
+			mat4 result(1.0f);
 
+			auto rads = toRadians(angle);
+			auto cosine = cos(rads.val);
+			auto sine = sin(rads.val);
+			auto oneMinusCosine = 1.0f - cosine;
+
+			float x = axis.x;
+			float y = axis.y;
+			float z = axis.z;
+
+			result.elements[0 + 0 * 4] = x * oneMinusCosine + cosine;
+			result.elements[0 + 1 * 4] = y * x * oneMinusCosine + z * sine;
+			result.elements[0 + 2 * 4] = x * z * oneMinusCosine - y * sine;
+
+			result.elements[1 + 0 * 4] = x * y * oneMinusCosine - z * sine;
+			result.elements[1 + 1 * 4] = y * oneMinusCosine + cosine;
+			result.elements[1 + 2 * 4] = y * z * oneMinusCosine + x * sine;
+
+			result.elements[2 + 0 * 4] = x * z * oneMinusCosine + y * sine;
+			result.elements[2 + 1 * 4] = y * z * oneMinusCosine - x * sine;
+			result.elements[2 + 2 * 4] = z * oneMinusCosine + cosine;
+
+			return result;
 		};
-		static mat4 scale(static vec3& scale)
+		mat4 mat4::scale(static vec3& scale)
 		{
+			mat4 result(1.0f);
 
+			result.elements[0 + 0 * 4] = scale.x;
+			result.elements[1 + 1 * 4] = scale.y;
+			result.elements[2 + 2 * 4] = scale.z;
+			
+			return result;
 		};
 
 		mat4& mat4::multiply(const mat4& other)

@@ -2,12 +2,14 @@
 #include <ostream>
 #include <vector>
 #include "vec3.h"
+#include "angles.h"
 
 namespace itsSomething
 {
 	namespace math
 	{
-		#define MAX_MAT4_INDEX 4 * 4
+
+#define MAX_MAT4_INDEX 4 * 4
 		
 		struct  mat4
 		{
@@ -19,9 +21,9 @@ namespace itsSomething
 
 			static mat4 identity();
 			static mat4 orthographic(float left, float right, float top, float bottom, float near, float far);
-			static mat4 perspective(float fov, float aspectRatio, float near, float far);
+			static mat4 perspective(degrees fov, float aspectRatio, float near, float far);
 			static mat4 translation(static vec3& translation);
-			static mat4 rotation(float angle, static vec3& axis);
+			static mat4 rotation(degrees angle, static vec3& axis);
 			static mat4 scale(static vec3& scale);
 			inline static int getRowIndex(int index) { return index % 4; };
 			inline static int getColIndex(int index) { return index / 4; };
